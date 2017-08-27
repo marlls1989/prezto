@@ -42,12 +42,12 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
-export GOPATH=$HOME/developer/gocode
+export GOPATH=$HOME/Developer/gocode
 
 # Set the list of directories that Zsh searches for programs.
 path=(
   $HOME/.local/bin
-	$HOME/.cargo/bin
+  $HOME/.cargo/bin
   $GOPATH/bin
   /usr/local/{bin,sbin}
   $path
@@ -74,7 +74,7 @@ fi
 #
 # Set TMPDIR if the variable is not set/empty or the directory doesn't exist
 if [[ -z "${TMPDIR}" ]]; then
-  export TMPDIR="/tmp"
+  export TMPDIR="/tmp/private-${UID}"
 fi
 
 if [[ ! -d "${TMPDIR}" ]]; then
