@@ -17,8 +17,9 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export ALTERNATE_EDITOR='emacs'
+export EDITOR='emacsclient -t'
+export VISUAL='emacsclient -c'
 export PAGER='less'
 
 #
@@ -26,7 +27,7 @@ export PAGER='less'
 #
 
 if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
+  export LANG='en_GB.UTF-8'
 fi
 
 #
@@ -41,8 +42,13 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
+export GOPATH=$HOME/developer/gocode
+
 # Set the list of directories that Zsh searches for programs.
 path=(
+  $HOME/.local/bin
+	$HOME/.cargo/bin
+  $GOPATH/bin
   /usr/local/{bin,sbin}
   $path
 )
@@ -68,7 +74,7 @@ fi
 #
 # Set TMPDIR if the variable is not set/empty or the directory doesn't exist
 if [[ -z "${TMPDIR}" ]]; then
-  export TMPDIR="/tmp/zsh-${UID}"
+  export TMPDIR="/tmp"
 fi
 
 if [[ ! -d "${TMPDIR}" ]]; then
