@@ -25,5 +25,5 @@ relpath () {
 }
 
 for rcfile in "${BASE}"/.zprezto/runcoms/^README.md(.N); do
-		ln -fs ${relpath "$BASE" "$rcfile"} "${BASE}/.${rcfile:t}"
+		ln -vfs $(relpath "$BASE" "$rcfile") "${BASE}/.${rcfile:t}"
 done
