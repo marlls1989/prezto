@@ -5,10 +5,13 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+
+#Fix a cagada made by Fedora 26 Xorg that sets your shell to bash
+export SHELL=$(which zsh)
+
 #
 # Browser
 #
-
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
@@ -17,7 +20,7 @@ fi
 # Editors
 #
 
-export ALTERNATE_EDITOR='emacs'
+export ALTERNATE_EDITOR=''
 export EDITOR='emacsclient -t'
 export VISUAL='emacsclient -c'
 export PAGER='less'
@@ -74,7 +77,7 @@ fi
 #
 # Set TMPDIR if the variable is not set/empty or the directory doesn't exist
 if [[ -z "${TMPDIR}" ]]; then
-  export TMPDIR="/tmp/private-${UID}"
+  export TMPDIR="/tmp"
 fi
 
 if [[ ! -d "${TMPDIR}" ]]; then
