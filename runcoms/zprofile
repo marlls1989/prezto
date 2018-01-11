@@ -1,3 +1,4 @@
+#!/bin/zsh
 #
 # Executes commands at login pre-zshrc.
 #
@@ -5,9 +6,6 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-
-#Fix a cagada made by Fedora 26 Xorg that sets your shell to bash
-export SHELL=$(which zsh)
 
 #
 # Browser
@@ -46,12 +44,14 @@ typeset -gU cdpath fpath mailpath path
 # )
 
 export GOPATH=$HOME/Developer/gocode
+export PYENV_ROOT=$HOME/.pyenv
 
 # Set the list of directories that Zsh searches for programs.
 path=(
   $HOME/.local/bin
   $HOME/.cargo/bin
   $GOPATH/bin
+  $PYENV_ROOT/bin
   /usr/local/{bin,sbin}
   $path
 )
@@ -77,9 +77,13 @@ fi
 #
 # Set TMPDIR if the variable is not set/empty or the directory doesn't exist
 if [[ -z "${TMPDIR}" ]]; then
-  export TMPDIR="/tmp"
+  export TMPDIR="/tmp/private-${UID}"
 fi
 
 if [[ ! -d "${TMPDIR}" ]]; then
   mkdir -m 700 "${TMPDIR}"
+fi
+
+if [[ -e /home/msartori/.nix-profile/etc/profile.d/nix.sh ]]; then
+		source /home/msartori/.nix-profile/etc/profile.d/nix.sh
 fi

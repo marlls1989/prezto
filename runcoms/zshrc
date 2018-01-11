@@ -1,3 +1,4 @@
+#!/bin/zsh
 #
 # Executes commands at the start of an interactive session.
 #
@@ -12,4 +13,7 @@ fi
 
 # Customize to your needs...
 
-
+if [[ -s "$(command -v pyenv)" ]]; then
+  eval $(pyenv init -)
+  eval $(pyenv virtualenv-init -)
+fi
