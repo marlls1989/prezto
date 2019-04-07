@@ -21,8 +21,8 @@ fi
 #
 
 export ALTERNATE_EDITOR=''
-export EDITOR='emacsclient -t'
-export VISUAL='emacsclient -c'
+export EDITOR='vim'
+export VISUAL='vim'
 export PAGER='less'
 
 #
@@ -51,6 +51,8 @@ export GOPATH=$HOME/Developer/gocode
 path=(
   $HOME/.local/bin
   $HOME/.cargo/bin
+  $HOME/Library/Haskell/bin
+  $HOME/Library/flutter/bin
   $GOPATH/bin
   /usr/local/{bin,sbin}
   $path
@@ -77,9 +79,11 @@ fi
 #
 # Set TMPDIR if the variable is not set/empty or the directory doesn't exist
 if [[ -z "${TMPDIR}" ]]; then
-  export TMPDIR="/tmp"
+  export TMPDIR="/tmp/private-${UID}"
 fi
 
 if [[ ! -d "${TMPDIR}" ]]; then
   mkdir -m 700 "${TMPDIR}"
 fi
+
+eval "$(pyenv virtualenv-init -)"
