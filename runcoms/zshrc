@@ -1,3 +1,4 @@
+#!/bin/zsh
 #
 # Executes commands at the start of an interactive session.
 #
@@ -13,3 +14,7 @@ fi
 # Customize to your needs...
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+if [[ -s "$(command -v pyenv)" ]]; then
+  eval $(pyenv init -)
+  eval $(pyenv virtualenv-init -)
+fi

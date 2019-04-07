@@ -1,3 +1,4 @@
+#!/bin/zsh
 #
 # Executes commands at login pre-zshrc.
 #
@@ -46,6 +47,7 @@ typeset -gU cdpath fpath mailpath path
 # )
 
 export GOPATH=$HOME/Developer/gocode
+export PYENV_ROOT=$HOME/.pyenv
 
 # Set the list of directories that Zsh searches for programs.
 path=(
@@ -54,6 +56,7 @@ path=(
   $HOME/Library/Haskell/bin
   $HOME/Library/flutter/bin
   $GOPATH/bin
+  $PYENV_ROOT/bin
   /usr/local/{bin,sbin}
   $path
 )
@@ -86,4 +89,6 @@ if [[ ! -d "${TMPDIR}" ]]; then
   mkdir -m 700 "${TMPDIR}"
 fi
 
-eval "$(pyenv virtualenv-init -)"
+if [[ -e /home/msartori/.nix-profile/etc/profile.d/nix.sh ]]; then
+		source /home/msartori/.nix-profile/etc/profile.d/nix.sh
+fi

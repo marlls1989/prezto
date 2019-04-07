@@ -16,6 +16,9 @@
 # Color output (auto set to 'no' on dumb terminals).
 zstyle ':prezto:*:*' color 'yes'
 
+# Add additional directories to load prezto modules from
+# zstyle ':prezto:load' pmodule-dirs $HOME/.zprezto-contrib
+
 # Set the Zsh modules to load (man zshmodules).
 # zstyle ':prezto:load' zmodule 'attr' 'stat'
 
@@ -58,7 +61,7 @@ zstyle ':prezto:load' pmodule \
 
 # Set the entries to ignore in static */etc/hosts* for host completion.
 # zstyle ':prezto:module:completion:*:hosts' etc-host-ignores \
-		#   '0.0.0.0' '127.0.0.1'
+#   '0.0.0.0' '127.0.0.1'
 
 #
 # Editor
@@ -101,7 +104,7 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # zstyle ':prezto:module:history-substring-search' globbing-flags ''
 
 #
-# OS X
+# macOS
 #
 
 # Set the keyword used by `mand` to open man pages in Dash.app
